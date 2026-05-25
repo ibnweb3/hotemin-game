@@ -71,17 +71,34 @@
       #left-group, #right-group { display: none; }
     }
 
+        /* Add these media queries at the bottom of <style> */
     @media (max-width: 700px) {
-      h1 { font-size: 28px; margin: 8px auto; }
-      #score { font-size: 22px; top: 10px; }
-      p.instructions { font-size: 15px; }
-      button { font-size: 26px; padding: 12px 40px; }
-      #ui { max-width: 380px; }
+      #ui {
+        max-width: 360px !important;
+      }
+      
+      #ui div {
+        padding: 15px 20px !important;
+      }
+      
+      #ui h2 {
+        font-size: 21px !important;
+        margin: 8px 0 15px 0 !important;
+      }
+      
+      button {
+        font-size: 24px !important;
+        padding: 12px 40px !important;
+      }
     }
 
     @media (max-width: 500px) {
-      #game-container { margin: 8px auto; }
-      canvas { border-width: 2px; }
+      #ui {
+        max-width: 320px !important;
+      }
+      #ui h2 {
+        font-size: 19px !important;
+      }
     }
   </style>
 </head>
@@ -119,7 +136,7 @@
 
     let bird = { x: 180, y: 220, vel: 0, size: 64 };
     let gravity = 0.45, flapStrength = -9.2, maxFallSpeed = 11.5;
-    let pipes = [], coins = [], particles = [], score = 0, gameState = 'start', frame = 0, speed = 2.35;
+    let pipes = [], coins = [], particles = [], score = 0, gameState = 'start', frame = 0, speed = 2.65;
     let lastHitType = "";
 
     const bgImg = new Image(); bgImg.src = 'background.png';
@@ -276,7 +293,7 @@
         }
       }
 
-      if (frame % 480 === 0) speed += 0.16;
+      if (frame % 460 === 0) speed += 0.18;
     }
 
     function drawAnimatedBrickPipe(x, y, w, h) {
